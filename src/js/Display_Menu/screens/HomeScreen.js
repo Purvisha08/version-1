@@ -36,7 +36,7 @@ const HomeScreen = () => {
           ) : error ? (
             <h2>{error}</h2>
           ) : (
-            Array.isArray(products) && products.map((product) => (
+            (Array.isArray(products) ? products : []).map((product) => (
               <Product
                 key={product._id}
                 name={product.name}
