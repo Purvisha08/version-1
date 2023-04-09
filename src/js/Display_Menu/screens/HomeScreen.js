@@ -36,7 +36,7 @@ const HomeScreen = () => {
           ) : error ? (
             <h2>{error}</h2>
           ) : (
-            (Array.isArray(products) ? products : []).map((product) => (
+            Array.isArray(products) && products.length > 0 ? products.map((product) => (
               <Product
                 key={product._id}
                 name={product.name}
@@ -45,7 +45,9 @@ const HomeScreen = () => {
                 imageUrl={product.imageUrl}
                 productId={product._id}
               />
-            ))
+            )) : (
+              <h2>No products available</h2>
+            )
           )}
         </div>
       </div>
